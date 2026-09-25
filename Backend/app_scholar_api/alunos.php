@@ -6,7 +6,7 @@ header("Content-Type: application/json; charset=UTF-8");
 
 try {
     // Busca os alunos cadastrados na tabela 'aluno'
-    $sql = "SELECT id_aluno AS id, nome, email, cpf FROM aluno";
+    $sql = "SELECT id_aluno AS id, nome, email, CPF FROM alunos";
     $stmt = $pdo->query($sql);
     $alunos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

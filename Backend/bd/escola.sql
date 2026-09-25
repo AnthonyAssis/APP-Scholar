@@ -17,17 +17,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Banco de dados: `escola`
---
+
 CREATE DATABASE IF NOT EXISTS `escola` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `escola`;
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `alunos`
---
 
 DROP TABLE IF EXISTS `alunos`;
 CREATE TABLE `alunos` (
@@ -41,9 +35,7 @@ CREATE TABLE `alunos` (
   `ativo` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `alunos`
---
+
 
 INSERT INTO `alunos` (`id_aluno`, `nome`, `data_nascimento`, `CPF`, `telefone`, `email`, `id_rua`, `ativo`) VALUES
 (1, 'Lucas Silva', '2005-03-10', '20000000001', '11910000001', 'ads1@escola.com', 1, 1),
@@ -97,11 +89,7 @@ INSERT INTO `alunos` (`id_aluno`, `nome`, `data_nascimento`, `CPF`, `telefone`, 
 (49, 'Bárbara Antunes', '2004-02-15', '20000000049', '11910000049', 'ads49@escola.com', 1, 1),
 (50, 'Otávio Martins', '2005-03-19', '20000000050', '11910000050', 'ads50@escola.com', 2, 1);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `al_re`
---
 
 DROP TABLE IF EXISTS `al_re`;
 CREATE TABLE `al_re` (
@@ -109,9 +97,6 @@ CREATE TABLE `al_re` (
   `id_responsavel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `al_re`
---
 
 INSERT INTO `al_re` (`id_aluno`, `id_responsavel`) VALUES
 (1, 1),
@@ -165,11 +150,7 @@ INSERT INTO `al_re` (`id_aluno`, `id_responsavel`) VALUES
 (49, 49),
 (50, 50);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `avaliacoes`
---
 
 DROP TABLE IF EXISTS `avaliacoes`;
 CREATE TABLE `avaliacoes` (
@@ -179,9 +160,7 @@ CREATE TABLE `avaliacoes` (
   `valor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `avaliacoes`
---
+
 
 INSERT INTO `avaliacoes` (`id_avaliacao`, `descricao`, `data_avaliacao`, `valor`) VALUES
 (1, 'Prova Bimestral 1 - Algoritmos', '2026-04-15', 25),
@@ -225,11 +204,7 @@ INSERT INTO `avaliacoes` (`id_avaliacao`, `descricao`, `data_avaliacao`, `valor`
 (39, 'Prova 2 - Transações e Concorrência', '2026-06-19', 25),
 (40, 'Mapeamento NoSQL MongoDB', '2026-06-28', 25);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `bairros`
---
 
 DROP TABLE IF EXISTS `bairros`;
 CREATE TABLE `bairros` (
@@ -238,9 +213,7 @@ CREATE TABLE `bairros` (
   `id_cidade` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `bairros`
---
+
 
 INSERT INTO `bairros` (`id_bairro`, `nome`, `id_cidade`) VALUES
 (1, 'Centro', 1),
@@ -250,11 +223,7 @@ INSERT INTO `bairros` (`id_bairro`, `nome`, `id_cidade`) VALUES
 (5, 'Santana', 1),
 (6, 'Ipiranga', 1);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `boletins`
---
 
 DROP TABLE IF EXISTS `boletins`;
 CREATE TABLE `boletins` (
@@ -266,9 +235,7 @@ CREATE TABLE `boletins` (
   `id_aluno` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `boletins`
---
+
 
 INSERT INTO `boletins` (`id_boletim`, `nota`, `media`, `situacao_final`, `frequencia`, `id_aluno`) VALUES
 (1, 85, 85, 'Aprovado', 92.5, 1),
@@ -282,11 +249,7 @@ INSERT INTO `boletins` (`id_boletim`, `nota`, `media`, `situacao_final`, `freque
 (9, 35, 35, 'Reprovado', 55.5, 9),
 (10, 88, 88, 'Aprovado', 91.0, 10);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `bo_di`
---
 
 DROP TABLE IF EXISTS `bo_di`;
 CREATE TABLE `bo_di` (
@@ -294,9 +257,7 @@ CREATE TABLE `bo_di` (
   `id_disciplina` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `bo_di`
---
+
 
 INSERT INTO `bo_di` (`id_boletim`, `id_disciplina`) VALUES
 (1, 1),
@@ -400,11 +361,7 @@ INSERT INTO `bo_di` (`id_boletim`, `id_disciplina`) VALUES
 (10, 9),
 (10, 10);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `cidades`
---
 
 DROP TABLE IF EXISTS `cidades`;
 CREATE TABLE `cidades` (
@@ -413,27 +370,19 @@ CREATE TABLE `cidades` (
   `id_uf` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `cidades`
---
+
 
 INSERT INTO `cidades` (`id_cidade`, `nome`, `id_uf`) VALUES
 (1, 'São Paulo', 1);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `coordenador`
---
 
 DROP TABLE IF EXISTS `coordenador`;
 CREATE TABLE `coordenador` (
   `id_prof` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `coordenador`
---
+
 
 INSERT INTO `coordenador` (`id_prof`) VALUES
 (1),
@@ -442,11 +391,7 @@ INSERT INTO `coordenador` (`id_prof`) VALUES
 (31),
 (41);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `cursos`
---
 
 DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE `cursos` (
@@ -457,9 +402,7 @@ CREATE TABLE `cursos` (
   `descricao` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `cursos`
---
+
 
 INSERT INTO `cursos` (`id_curso`, `nome`, `carga_horaria`, `duracao`, `descricao`) VALUES
 (1, 'Análise e Desenvolvimento de Sistemas', 2400, 5, 'Curso superior de tecnologia em ADS.'),
@@ -468,11 +411,7 @@ INSERT INTO `cursos` (`id_curso`, `nome`, `carga_horaria`, `duracao`, `descricao
 (4, 'Direito', 3700, 10, 'Bacharelado em Direito.'),
 (5, 'Engenharia de Software', 3600, 8, 'Bacharelado em Engenharia de Software.');
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `cur_di`
---
 
 DROP TABLE IF EXISTS `cur_di`;
 CREATE TABLE `cur_di` (
@@ -480,9 +419,7 @@ CREATE TABLE `cur_di` (
   `id_curso` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `cur_di`
---
+
 
 INSERT INTO `cur_di` (`id_disciplina`, `id_curso`) VALUES
 (1, 1),
@@ -536,11 +473,7 @@ INSERT INTO `cur_di` (`id_disciplina`, `id_curso`) VALUES
 (49, 5),
 (50, 5);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `disciplinas`
---
 
 DROP TABLE IF EXISTS `disciplinas`;
 CREATE TABLE `disciplinas` (
@@ -550,9 +483,7 @@ CREATE TABLE `disciplinas` (
   `id_prof` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `disciplinas`
---
+
 
 INSERT INTO `disciplinas` (`id_disciplina`, `nome`, `carga_horaria`, `id_prof`) VALUES
 (1, 'Algoritmos e Lógica', 80, 1),
@@ -606,11 +537,7 @@ INSERT INTO `disciplinas` (`id_disciplina`, `nome`, `carga_horaria`, `id_prof`) 
 (49, 'Desenvolvimento Mobile', 80, 49),
 (50, 'Microsserviços', 60, 50);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `di_ava`
---
 
 DROP TABLE IF EXISTS `di_ava`;
 CREATE TABLE `di_ava` (
@@ -618,9 +545,7 @@ CREATE TABLE `di_ava` (
   `id_avaliacao` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `di_ava`
---
+
 
 INSERT INTO `di_ava` (`id_disciplina`, `id_avaliacao`) VALUES
 (1, 1),
@@ -664,11 +589,7 @@ INSERT INTO `di_ava` (`id_disciplina`, `id_avaliacao`) VALUES
 (10, 40),
 (34, 33);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `matriculas`
---
 
 DROP TABLE IF EXISTS `matriculas`;
 CREATE TABLE `matriculas` (
@@ -678,9 +599,7 @@ CREATE TABLE `matriculas` (
   `situacao_matricula` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `matriculas`
---
+
 
 INSERT INTO `matriculas` (`id_matricula`, `id_aluno`, `data_matricula`, `situacao_matricula`) VALUES
 (1, 1, '2026-02-10', 'Ativo'),
@@ -734,11 +653,7 @@ INSERT INTO `matriculas` (`id_matricula`, `id_aluno`, `data_matricula`, `situaca
 (49, 49, '2026-02-10', 'Ativo'),
 (50, 50, '2026-02-10', 'Ativo');
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `ma_tur`
---
 
 DROP TABLE IF EXISTS `ma_tur`;
 CREATE TABLE `ma_tur` (
@@ -746,9 +661,7 @@ CREATE TABLE `ma_tur` (
   `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `ma_tur`
---
+
 
 INSERT INTO `ma_tur` (`id_matricula`, `id_turma`) VALUES
 (1, 1),
@@ -802,11 +715,7 @@ INSERT INTO `ma_tur` (`id_matricula`, `id_turma`) VALUES
 (49, 5),
 (50, 5);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `professores`
---
 
 DROP TABLE IF EXISTS `professores`;
 CREATE TABLE `professores` (
@@ -819,9 +728,7 @@ CREATE TABLE `professores` (
   `id_rua` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `professores`
---
+
 
 INSERT INTO `professores` (`id_prof`, `nome`, `CPF`, `formacao`, `email`, `telefone`, `id_rua`) VALUES
 (1, 'Prof. Carlos Silva', '11111111111', 'Doutorado em Computação', 'carlos@escola.com', '11999990001', 2),
@@ -875,11 +782,7 @@ INSERT INTO `professores` (`id_prof`, `nome`, `CPF`, `formacao`, `email`, `telef
 (49, 'Prof. Ursula Prates', '55555555509', 'Doutorado Mobile', 'ursula@escola.com', '11955550009', 1),
 (50, 'Prof. Vitor Fagundes', '55555555510', 'Mestrado Microsserviços', 'vitor@escola.com', '11955550010', 1);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `responsaveis`
---
 
 DROP TABLE IF EXISTS `responsaveis`;
 CREATE TABLE `responsaveis` (
@@ -890,9 +793,7 @@ CREATE TABLE `responsaveis` (
   `id_rua` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `responsaveis`
---
+
 
 INSERT INTO `responsaveis` (`id_responsavel`, `nome`, `CPF`, `parentesco`, `id_rua`) VALUES
 (1, 'Responsavel 1', '10000000001', 'Pai', 1),
@@ -946,11 +847,7 @@ INSERT INTO `responsaveis` (`id_responsavel`, `nome`, `CPF`, `parentesco`, `id_r
 (49, 'Responsavel 49', '10000000049', 'Mãe', 1),
 (50, 'Responsavel 50', '10000000050', 'Outro', 2);
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `ruas`
---
 
 DROP TABLE IF EXISTS `ruas`;
 CREATE TABLE `ruas` (
@@ -959,9 +856,7 @@ CREATE TABLE `ruas` (
   `id_bairro` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `ruas`
---
+
 
 INSERT INTO `ruas` (`id_rua`, `nome`, `id_bairro`) VALUES
 (1, 'Avenida Paulista', 1),
@@ -983,11 +878,6 @@ INSERT INTO `ruas` (`id_rua`, `nome`, `id_bairro`) VALUES
 (17, 'Rua Silva Bueno', 6),
 (18, 'Avenida Nazaré', 6);
 
--- --------------------------------------------------------
-
---
--- Estrutura para tabela `turmas`
---
 
 DROP TABLE IF EXISTS `turmas`;
 CREATE TABLE `turmas` (
@@ -997,9 +887,7 @@ CREATE TABLE `turmas` (
   `turno` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `turmas`
---
+
 
 INSERT INTO `turmas` (`id_turma`, `id_curso`, `anoLetivo`, `turno`) VALUES
 (1, 1, '2026', 'Noturno'),
@@ -1008,11 +896,7 @@ INSERT INTO `turmas` (`id_turma`, `id_curso`, `anoLetivo`, `turno`) VALUES
 (4, 4, '2026', 'Noturno'),
 (5, 5, '2026', 'Noturno');
 
--- --------------------------------------------------------
 
---
--- Estrutura para tabela `uf`
---
 
 DROP TABLE IF EXISTS `uf`;
 CREATE TABLE `uf` (
@@ -1021,19 +905,12 @@ CREATE TABLE `uf` (
   `sigla` char(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `uf`
---
+
 
 INSERT INTO `uf` (`id_uf`, `nome`, `sigla`) VALUES
 (1, 'São Paulo', 'SP');
 
--- --------------------------------------------------------
 
---
--- Estrutura stand-in para view `vw_alunos_simples`
--- (Veja abaixo para a visão atual)
---
 DROP VIEW IF EXISTS `vw_alunos_simples`;
 CREATE TABLE `vw_alunos_simples` (
 `nome_completo` varchar(80)
@@ -1046,333 +923,220 @@ CREATE TABLE `vw_alunos_simples` (
 ,`curso` varchar(80)
 );
 
--- --------------------------------------------------------
 
---
--- Estrutura para view `vw_alunos_simples`
---
 DROP TABLE IF EXISTS `vw_alunos_simples`;
 
 DROP VIEW IF EXISTS `vw_alunos_simples`;
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_alunos_simples`  AS SELECT `a`.`nome` AS `nome_completo`, `a`.`data_nascimento` AS `data_nascimento`, `a`.`CPF` AS `CPF`, `r`.`nome` AS `responsavel`, `ru`.`nome` AS `endereco`, `a`.`email` AS `email`, `a`.`telefone` AS `telefone`, `cur`.`nome` AS `curso` FROM (((((((`alunos` `a` left join `al_re` `ar` on(`a`.`id_aluno` = `ar`.`id_aluno`)) left join `responsaveis` `r` on(`ar`.`id_responsavel` = `r`.`id_responsavel`)) left join `ruas` `ru` on(`a`.`id_rua` = `ru`.`id_rua`)) left join `matriculas` `m` on(`a`.`id_aluno` = `m`.`id_aluno`)) left join `ma_tur` `mt` on(`m`.`id_matricula` = `mt`.`id_matricula`)) left join `turmas` `t` on(`mt`.`id_turma` = `t`.`id_turma`)) left join `cursos` `cur` on(`t`.`id_curso` = `cur`.`id_curso`)) ;
 
---
--- Índices para tabelas despejadas
---
 
---
--- Índices de tabela `alunos`
---
 ALTER TABLE `alunos`
   ADD PRIMARY KEY (`id_aluno`),
   ADD KEY `id_rua` (`id_rua`);
 
---
--- Índices de tabela `al_re`
---
+
 ALTER TABLE `al_re`
   ADD PRIMARY KEY (`id_aluno`,`id_responsavel`),
   ADD KEY `id_responsavel` (`id_responsavel`);
 
---
--- Índices de tabela `avaliacoes`
---
+
 ALTER TABLE `avaliacoes`
   ADD PRIMARY KEY (`id_avaliacao`);
 
---
--- Índices de tabela `bairros`
---
 ALTER TABLE `bairros`
   ADD PRIMARY KEY (`id_bairro`),
   ADD KEY `id_cidade` (`id_cidade`);
 
---
--- Índices de tabela `boletins`
---
+
 ALTER TABLE `boletins`
   ADD PRIMARY KEY (`id_boletim`),
   ADD KEY `id_aluno` (`id_aluno`);
 
---
--- Índices de tabela `bo_di`
---
+
 ALTER TABLE `bo_di`
   ADD PRIMARY KEY (`id_boletim`,`id_disciplina`),
   ADD KEY `id_disciplina` (`id_disciplina`);
 
---
--- Índices de tabela `cidades`
---
+
 ALTER TABLE `cidades`
   ADD PRIMARY KEY (`id_cidade`),
   ADD KEY `id_uf` (`id_uf`);
 
---
--- Índices de tabela `coordenador`
---
+
 ALTER TABLE `coordenador`
   ADD PRIMARY KEY (`id_prof`);
 
---
--- Índices de tabela `cursos`
---
+
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id_curso`);
 
---
--- Índices de tabela `cur_di`
---
+
 ALTER TABLE `cur_di`
   ADD PRIMARY KEY (`id_disciplina`,`id_curso`),
   ADD KEY `id_curso` (`id_curso`);
 
---
--- Índices de tabela `disciplinas`
---
+
 ALTER TABLE `disciplinas`
   ADD PRIMARY KEY (`id_disciplina`),
   ADD KEY `id_prof` (`id_prof`);
 
---
--- Índices de tabela `di_ava`
---
+
 ALTER TABLE `di_ava`
   ADD PRIMARY KEY (`id_disciplina`,`id_avaliacao`),
   ADD KEY `id_avaliacao` (`id_avaliacao`);
 
---
--- Índices de tabela `matriculas`
---
+
 ALTER TABLE `matriculas`
   ADD PRIMARY KEY (`id_matricula`),
   ADD KEY `id_aluno` (`id_aluno`);
 
---
--- Índices de tabela `ma_tur`
---
+
 ALTER TABLE `ma_tur`
   ADD PRIMARY KEY (`id_matricula`,`id_turma`),
   ADD KEY `id_turma` (`id_turma`);
 
---
--- Índices de tabela `professores`
---
+
 ALTER TABLE `professores`
   ADD PRIMARY KEY (`id_prof`),
   ADD KEY `id_rua` (`id_rua`);
 
---
--- Índices de tabela `responsaveis`
---
+
 ALTER TABLE `responsaveis`
   ADD PRIMARY KEY (`id_responsavel`),
   ADD KEY `id_rua` (`id_rua`);
 
---
--- Índices de tabela `ruas`
---
+
 ALTER TABLE `ruas`
   ADD PRIMARY KEY (`id_rua`),
   ADD KEY `id_bairro` (`id_bairro`);
 
---
--- Índices de tabela `turmas`
---
+
 ALTER TABLE `turmas`
   ADD PRIMARY KEY (`id_turma`),
   ADD KEY `id_curso` (`id_curso`);
 
---
--- Índices de tabela `uf`
---
+
 ALTER TABLE `uf`
   ADD PRIMARY KEY (`id_uf`);
 
---
--- AUTO_INCREMENT para tabelas despejadas
---
 
---
--- AUTO_INCREMENT de tabela `alunos`
---
 ALTER TABLE `alunos`
   MODIFY `id_aluno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
---
--- AUTO_INCREMENT de tabela `avaliacoes`
---
+
 ALTER TABLE `avaliacoes`
   MODIFY `id_avaliacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
---
--- AUTO_INCREMENT de tabela `bairros`
---
+
 ALTER TABLE `bairros`
   MODIFY `id_bairro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT de tabela `boletins`
---
+
 ALTER TABLE `boletins`
   MODIFY `id_boletim` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
---
--- AUTO_INCREMENT de tabela `cidades`
---
+
 ALTER TABLE `cidades`
   MODIFY `id_cidade` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- AUTO_INCREMENT de tabela `cursos`
---
+
 ALTER TABLE `cursos`
   MODIFY `id_curso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT de tabela `disciplinas`
---
+
 ALTER TABLE `disciplinas`
   MODIFY `id_disciplina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
---
--- AUTO_INCREMENT de tabela `matriculas`
---
+
 ALTER TABLE `matriculas`
   MODIFY `id_matricula` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=251;
 
---
--- AUTO_INCREMENT de tabela `professores`
---
+
 ALTER TABLE `professores`
   MODIFY `id_prof` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
---
--- AUTO_INCREMENT de tabela `responsaveis`
---
+
 ALTER TABLE `responsaveis`
   MODIFY `id_responsavel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
---
--- AUTO_INCREMENT de tabela `ruas`
---
+
 ALTER TABLE `ruas`
   MODIFY `id_rua` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
---
--- AUTO_INCREMENT de tabela `turmas`
---
+
 ALTER TABLE `turmas`
   MODIFY `id_turma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT de tabela `uf`
---
+
 ALTER TABLE `uf`
   MODIFY `id_uf` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
---
--- Restrições para tabelas despejadas
---
 
---
--- Restrições para tabelas `alunos`
---
 ALTER TABLE `alunos`
   ADD CONSTRAINT `alunos_ibfk_1` FOREIGN KEY (`id_rua`) REFERENCES `ruas` (`id_rua`);
 
---
--- Restrições para tabelas `al_re`
---
+
 ALTER TABLE `al_re`
   ADD CONSTRAINT `al_re_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`id_aluno`),
   ADD CONSTRAINT `al_re_ibfk_2` FOREIGN KEY (`id_responsavel`) REFERENCES `responsaveis` (`id_responsavel`);
 
---
--- Restrições para tabelas `bairros`
---
+
 ALTER TABLE `bairros`
   ADD CONSTRAINT `bairros_ibfk_1` FOREIGN KEY (`id_cidade`) REFERENCES `cidades` (`id_cidade`);
 
---
--- Restrições para tabelas `boletins`
---
+
 ALTER TABLE `boletins`
   ADD CONSTRAINT `boletins_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`id_aluno`);
 
---
--- Restrições para tabelas `bo_di`
---
+
 ALTER TABLE `bo_di`
   ADD CONSTRAINT `bo_di_ibfk_1` FOREIGN KEY (`id_boletim`) REFERENCES `boletins` (`id_boletim`),
   ADD CONSTRAINT `bo_di_ibfk_2` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplinas` (`id_disciplina`);
 
---
--- Restrições para tabelas `cidades`
---
+
 ALTER TABLE `cidades`
   ADD CONSTRAINT `cidades_ibfk_1` FOREIGN KEY (`id_uf`) REFERENCES `uf` (`id_uf`);
 
---
--- Restrições para tabelas `coordenador`
---
+
 ALTER TABLE `coordenador`
   ADD CONSTRAINT `coordenador_ibfk_1` FOREIGN KEY (`id_prof`) REFERENCES `professores` (`id_prof`);
 
---
--- Restrições para tabelas `cur_di`
---
+
 ALTER TABLE `cur_di`
   ADD CONSTRAINT `cur_di_ibfk_1` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplinas` (`id_disciplina`),
   ADD CONSTRAINT `cur_di_ibfk_2` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`);
 
---
--- Restrições para tabelas `disciplinas`
---
+
 ALTER TABLE `disciplinas`
   ADD CONSTRAINT `disciplinas_ibfk_1` FOREIGN KEY (`id_prof`) REFERENCES `professores` (`id_prof`);
 
---
--- Restrições para tabelas `di_ava`
---
+
 ALTER TABLE `di_ava`
   ADD CONSTRAINT `di_ava_ibfk_1` FOREIGN KEY (`id_disciplina`) REFERENCES `disciplinas` (`id_disciplina`),
   ADD CONSTRAINT `di_ava_ibfk_2` FOREIGN KEY (`id_avaliacao`) REFERENCES `avaliacoes` (`id_avaliacao`);
 
---
--- Restrições para tabelas `matriculas`
---
+
 ALTER TABLE `matriculas`
   ADD CONSTRAINT `matriculas_ibfk_1` FOREIGN KEY (`id_aluno`) REFERENCES `alunos` (`id_aluno`);
 
---
--- Restrições para tabelas `ma_tur`
---
+
 ALTER TABLE `ma_tur`
   ADD CONSTRAINT `ma_tur_ibfk_1` FOREIGN KEY (`id_matricula`) REFERENCES `matriculas` (`id_matricula`),
   ADD CONSTRAINT `ma_tur_ibfk_2` FOREIGN KEY (`id_turma`) REFERENCES `turmas` (`id_turma`);
 
---
--- Restrições para tabelas `professores`
---
+
 ALTER TABLE `professores`
   ADD CONSTRAINT `professores_ibfk_1` FOREIGN KEY (`id_rua`) REFERENCES `ruas` (`id_rua`);
 
---
--- Restrições para tabelas `responsaveis`
---
+
 ALTER TABLE `responsaveis`
   ADD CONSTRAINT `responsaveis_ibfk_1` FOREIGN KEY (`id_rua`) REFERENCES `ruas` (`id_rua`);
 
---
--- Restrições para tabelas `ruas`
---
+
 ALTER TABLE `ruas`
   ADD CONSTRAINT `ruas_ibfk_1` FOREIGN KEY (`id_bairro`) REFERENCES `bairros` (`id_bairro`);
 
---
--- Restrições para tabelas `turmas`
---
+
 ALTER TABLE `turmas`
   ADD CONSTRAINT `turmas_ibfk_1` FOREIGN KEY (`id_curso`) REFERENCES `cursos` (`id_curso`);
 COMMIT;

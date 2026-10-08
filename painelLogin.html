@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Chango&family=Coiny&family=Walter+Turncoat&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="painelLogin.css">
+    <link rel="shortcut icon" href="/sprites/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <a id="logobtn" href="#home"><img src="/sprites/favicon.png" id="logo"></a>
+        <div id="dropdownContainer">
+            <button id="dropdownTrigger">
+                <img src="./sprites/userPng.png" alt="Dropdown Trigger">
+            </button>
+
+            <div id="dropdownMenu">
+                <a href="painelLogin.html">Login</a>
+                <a href="">Registrar</a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const dropdownTrigger = document.getElementById('dropdownTrigger');
+                const dropdownMenu = document.getElementById('dropdownMenu');
+
+                dropdownTrigger.addEventListener('click', function(event) {
+                    event.stopPropagation();
+
+                    dropdownMenu.classList.toggle('open');
+                });
+                
+                document.addEventListener('click', function (event) {
+                    if (!document.getElementById('dropdownContainer').contains(event.target)) {
+                        dropdownMenu.classList.remove('open');
+                    }
+                });
+            });
+        </script>
+        <ul>
+            <a href="index.html#home">
+                <li>Home</li>
+            </a>
+            <a href="index.html#sobre">
+                <li>Sobre</li>
+            </a>
+            <a href="index.html#cardapio">
+                <li>Cardápio</li>
+            </a>
+            <a href="">
+                <li>Mural</li>
+            </a>
+            <a href="">
+                <li>Contato</li>
+            </a>
+        </ul>
+    </nav>
+    <div id="container">
+        <form id="formLogin">
+            <h3>Login</h3>
+            <input type="text" placeholder="Nome de usuário" id="usuario">
+            <input type="text" placeholder="Email" id="email">
+            <input type="password" placeholder="Senha" id="senha">
+            <button type="submit" onclick="loginVerificacao()"> Fazer login </button>
+        </form>
+        <script>
+            function loginVerificacao() {
+                const user = document.getElementById('usuario').value;
+                const email = document.getElementById("email").value;
+                const password = document.getElementById('senha').value;
+
+                if (user === 'admin' && email === 'admin@gmail.com' && password === 'admin' ) {
+                    alert('logado com sucesso!')
+                }else {
+                    alert('informações incorretas')
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
